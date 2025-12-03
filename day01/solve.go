@@ -1,8 +1,8 @@
 package day01
 
 import (
+	"ii7102/advent-of-code-2025/utils"
 	"strconv"
-	"strings"
 )
 
 const (
@@ -13,7 +13,7 @@ const (
 func SolvePuzzle1(input string) (res int) {
 	dial := startDial
 
-	for line := range strings.SplitSeq(input, "\n") {
+	for line := range utils.SplitByNewLine(input) {
 		direction, rotation := directionAndRotation(line)
 
 		dial = applyRotation(direction, dial, rotation)
@@ -30,7 +30,7 @@ func SolvePuzzle1(input string) (res int) {
 func SolvePuzzle2(input string) (res int) {
 	dial := startDial
 
-	for line := range strings.SplitSeq(input, "\n") {
+	for line := range utils.SplitByNewLine(input) {
 		direction, rotation := directionAndRotation(line)
 
 		if direction == left && dial > 0 && rotation >= dial { // special case for left direction
@@ -43,6 +43,7 @@ func SolvePuzzle2(input string) (res int) {
 
 		dial = normalizeDial(dial)
 	}
+
 	return
 }
 
@@ -52,7 +53,7 @@ func normalizeDial(dial int) int {
 
 func directionAndRotation(line string) (byte, int) {
 	direction := line[0]
-	rotation, err := strconv.Atoi(strings.TrimSpace(line[1:]))
+	rotation, err := strconv.Atoi(line[1:])
 	if err != nil {
 		panic(err)
 	}
@@ -75,5 +76,6 @@ func abs(x int) int {
 	if x < 0 {
 		return -x
 	}
+
 	return x
 }

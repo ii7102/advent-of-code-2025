@@ -1,6 +1,7 @@
 package day02
 
 import (
+	"ii7102/advent-of-code-2025/utils"
 	"strconv"
 	"strings"
 )
@@ -14,7 +15,7 @@ func SolvePuzzle2(input string) (res int) {
 }
 
 func solvePuzzle(invalidIDFunc func(string) bool, input string) (res int) {
-	for line := range strings.SplitSeq(input, ",") {
+	for line := range utils.SplitByComma(input) {
 		leftStr, rightStr, found := strings.Cut(line, "-")
 		if !found {
 			panic("invalid line: " + line)
@@ -36,6 +37,7 @@ func solvePuzzle(invalidIDFunc func(string) bool, input string) (res int) {
 			}
 		}
 	}
+
 	return
 }
 
@@ -49,6 +51,7 @@ func isInvalidIDPart2(s string) bool {
 			return true
 		}
 	}
+
 	return len(s) > 1 && hasRepeatingPattern(s, len(s))
 }
 
@@ -57,9 +60,11 @@ func hasRepeatingPattern(s string, parts int) bool {
 		return false
 	}
 
-	partLen := len(s) / parts
+	var (
+		partLen = len(s) / parts
+		pattern = s[:partLen]
+	)
 
-	pattern := s[:partLen]
 	for i := range parts {
 		if s[i*partLen:(i+1)*partLen] != pattern {
 			return false

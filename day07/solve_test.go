@@ -1,8 +1,8 @@
 package day07_test
 
 import (
-	"spissable/advent-of-go-template/day07"
-	"spissable/advent-of-go-template/utils"
+	"ii7102/advent-of-code-2025/day07"
+	"ii7102/advent-of-code-2025/utils"
 	"testing"
 )
 
