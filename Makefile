@@ -4,4 +4,4 @@ init:
 	done
 
 day-%:
-	go test ./day$* -v
+	go test ./day$* -v -count=1
