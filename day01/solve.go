@@ -2,7 +2,6 @@ package day01
 
 import (
 	"ii7102/advent-of-code-2025/utils"
-	"strconv"
 )
 
 const (
@@ -51,14 +50,11 @@ func normalizeDial(dial int) int {
 	return (dial%100 + 100) % 100
 }
 
-func directionAndRotation(line string) (byte, int) {
-	direction := line[0]
-	rotation, err := strconv.Atoi(line[1:])
-	if err != nil {
-		panic(err)
-	}
+func directionAndRotation(line string) (direction byte, rotation int) {
+	direction = line[0]
+	rotation = utils.ToInt(line[1:])
 
-	return direction, rotation
+	return
 }
 
 func applyRotation(direction byte, dial, rotation int) int {

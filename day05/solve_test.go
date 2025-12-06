@@ -4,16 +4,18 @@ import (
 	"ii7102/advent-of-code-2025/day05"
 	"ii7102/advent-of-code-2025/utils"
 	"testing"
+
+	"github.com/go-playground/assert/v2"
 )
 
 func TestSolvePuzzle1(t *testing.T) {
 	input := utils.ReadInput(t)
 	result := day05.SolvePuzzle1(input)
-	utils.LogResult(t, result)
+	assert.Equal(t, utils.Result1Day5, result)
 }
 
 func TestSolvePuzzle2(t *testing.T) {
 	input := utils.ReadInput(t)
 	result := day05.SolvePuzzle2(input)
-	utils.LogResult(t, result)
+	assert.Equal(t, utils.Result2Day5, result)
 }

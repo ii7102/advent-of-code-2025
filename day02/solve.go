@@ -3,7 +3,6 @@ package day02
 import (
 	"ii7102/advent-of-code-2025/utils"
 	"strconv"
-	"strings"
 )
 
 func SolvePuzzle1(input string) (res int) {
@@ -16,20 +15,7 @@ func SolvePuzzle2(input string) (res int) {
 
 func solvePuzzle(invalidIDFunc func(string) bool, input string) (res int) {
 	for line := range utils.SplitByComma(input) {
-		leftStr, rightStr, found := strings.Cut(line, "-")
-		if !found {
-			panic("invalid line: " + line)
-		}
-
-		left, err := strconv.Atoi(leftStr)
-		if err != nil {
-			panic("invalid left: " + leftStr)
-		}
-
-		right, err := strconv.Atoi(rightStr)
-		if err != nil {
-			panic("invalid right: " + rightStr)
-		}
+		left, right := utils.Range(line)
 
 		for id := left; id <= right; id++ {
 			if invalidIDFunc(strconv.Itoa(id)) {
