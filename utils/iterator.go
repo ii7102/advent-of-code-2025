@@ -12,3 +12,7 @@ func SplitByNewLine(s string) iter.Seq[string] {
 func SplitByComma(s string) iter.Seq[string] {
 	return strings.SplitSeq(s, ",")
 }
+
+func SplitByEmptySpace(s string) iter.Seq[string] {
+	return strings.SplitSeq(s, " ")
+}
