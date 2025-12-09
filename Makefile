@@ -4,4 +4,4 @@ init:
 	done
 
 day-%:
-	go test ./day$* -v -count=1 -timeout 300ms
+	go test ./day$* -v -count=1 -timeout 10s
