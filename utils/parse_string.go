@@ -48,6 +48,25 @@ func Coordinates(s string) (x, y, z int) {
 	return
 }
 
+func Coordinates2D(s string) (x, y int) {
+	strSplit := strings.Split(s, ",")
+	if len(strSplit) != 2 {
+		panic("invalid string: " + s)
+	}
+
+	x, err := strconv.Atoi(strSplit[0])
+	if err != nil {
+		panic("invalid x: " + strSplit[0])
+	}
+
+	y, err = strconv.Atoi(strSplit[1])
+	if err != nil {
+		panic("invalid y: " + strSplit[1])
+	}
+
+	return
+}
+
 func ToInt(s string) int {
 	i, err := strconv.Atoi(s)
 	if err != nil {
