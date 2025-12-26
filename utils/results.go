@@ -23,4 +23,6 @@ const (
 	Result2Day10 = 20626
 	Result1Day11 = 500
 	Result2Day11 = 287039700129600
+	Result1Day12 = 425
+	Result2Day12 = 0
 )
